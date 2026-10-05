@@ -1,0 +1,202 @@
+LAB 10 – CODE REVIEW AND QUALITY: USING AI TO IMPROVE CODE QUALITY AND READABILITY
+
+============================================================
+TASK 1 – SYNTAX AND LOGIC ERRORS
+============================================================
+
+PROMPT:
+Use AI to identify and fix syntax and logic errors in the following faulty Python script. Provide corrected runnable code and explain the fixes.
+
+CODE:
+# Calculate average score of a student
+def calc_average(marks):
+    total = 0
+    for m in marks:
+        total += m
+    average = total / len(marks)
+    return avrage  # Typo here
+
+marks = [85, 90, 78, 92]
+print("Average Score is ", calc_average(marks))
+
+OUTPUT:
+Average Score is 86.25
+
+FIXES:
+1. Changed 'avrage' to 'average'.
+2. Added the missing closing ')' to the print statement.
+3. Corrected the indentation of the loop body so the code is runnable.
+
+============================================================
+TASK 2 – PEP 8 COMPLIANCE
+============================================================
+
+PROMPT:
+Use AI to refactor the following Python code to follow PEP 8 style guidelines. Provide well-formatted PEP 8-compliant code.
+
+CODE:
+def area_of_rect(L,B) : return L*B
+print(area_of_rect(10,20))
+
+OUTPUT:
+200
+
+PEP 8 COMPLIANT CODE:
+def area_of_rect(length, breadth):
+    return length * breadth
+
+
+print(area_of_rect(10, 20))
+
+============================================================
+TASK 3 – READABILITY ENHANCEMENT
+============================================================
+
+PROMPT:
+Use AI to make the following Python code more readable without changing its logic. Use descriptive variable names, inline comments, and clear formatting.
+
+CODE:
+def c(x,y):
+    return x*y/100
+
+a=200
+b=15
+print(c(a,b))
+
+OUTPUT:
+30.0
+
+IMPROVED CODE:
+def calculate_percentage(value, percentage):
+    # Calculate the given percentage of a value
+    return value * percentage / 100
+
+
+amount = 200
+percentage = 15
+
+print(calculate_percentage(amount, percentage))
+
+OUTPUT:
+30.0
+
+============================================================
+TASK 4 – REFACTORING FOR MAINTAINABILITY
+============================================================
+
+PROMPT:
+Use AI to break repetitive or long code into reusable functions. Provide modular Python code that improves maintainability.
+
+CODE:
+students = ["Alice", "Bob", "Charlie"]
+print("Welcome", students[0])
+print("Welcome", students[1])
+print("Welcome", students[2])
+
+OUTPUT:
+Welcome Alice
+Welcome Bob
+Welcome Charlie
+
+REFACTORED CODE:
+def welcome_students(students):
+    for student in students:
+        print("Welcome", student)
+
+
+students = ["Alice", "Bob", "Charlie"]
+welcome_students(students)
+
+OUTPUT:
+Welcome Alice
+Welcome Bob
+Welcome Charlie
+
+============================================================
+TASK 5 – PERFORMANCE OPTIMIZATION
+============================================================
+
+PROMPT:
+Use AI to make the following Python code run faster. Optimize it using list comprehensions or vectorized operations where appropriate.
+
+CODE:
+# Find squares of numbers
+nums = [i for i in range(1,1000000)]
+squares = []
+for n in nums:
+    squares.append(n**2)
+print(len(squares))
+
+OUTPUT:
+999999
+
+OPTIMIZED CODE:
+# Find squares of numbers using a list comprehension
+squares = [n**2 for n in range(1, 1000000)]
+print(len(squares))
+
+OUTPUT:
+999999
+
+============================================================
+TASK 6 – COMPLEXITY REDUCTION
+============================================================
+
+PROMPT:
+Use AI to simplify the following overly complex logic. Provide cleaner Python code using elif or dictionary mapping.
+
+CODE:
+def grade(score):
+    if score >= 90:
+        return "A"
+    else:
+        if score >= 80:
+            return "B"
+        else:
+            if score >= 70:
+                return "C"
+            else:
+                if score >= 60:
+                    return "D"
+                else:
+                    return "F"
+
+OUTPUT EXAMPLES:
+print(grade(95))
+print(grade(85))
+print(grade(75))
+print(grade(65))
+print(grade(50))
+
+A
+B
+C
+D
+F
+
+SIMPLIFIED CODE:
+def grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+
+print(grade(95))
+print(grade(85))
+print(grade(75))
+print(grade(65))
+print(grade(50))
+
+OUTPUT:
+A
+B
+C
+D
+F
