@@ -1,0 +1,456 @@
+NAME : B.RAMCHARAN
+ROLL NO : 2503A52670
+BATCH : 23
+                                                                 ASSIGNMENT:4.1
+Q1:
+Customer Email Classification
+A company receives a large number of customer emails every day and wants to automatically classify them into the following categories:
+•	Billing
+•	Technical Support
+•	Feedback
+•	Others
+Instead of training a new machine learning model, the company decides to use prompt engineering techniques with an existing large language model.
+Tasks
+1.	Prepare five short sample emails, each belonging to one of the above categories.
+2.	Write a zero-shot prompt to classify a given email into one of the categories without providing any examples.
+3.	Write a one-shot prompt by including one labeled email example and ask the model to classify a new email.
+4.	Write a few-shot prompt by including two or three labeled email examples and ask the model to classify a new email.
+5.	Compare the outputs obtained using zero-shot, one-shot, and few-shot prompting techniques and briefly comment on their effectiveness
+PROMPT:
+Complete this Customer Email Classification assignment.
+Categories: Billing, Technical Support, Feedback, Others
+1.	Create 5 short sample emails and label each category.
+2.	Write a zero-shot prompt and show its output for a new email.
+3.	Write a one-shot prompt with 1 labeled example and show its output for a new email.
+4.	Write a few-shot prompt with 3 labeled examples and show its output for a new email.
+5.	Give a short comparison of zero-shot, one-shot, and few-shot based on accuracy, advantages, and limitations.
+Keep everything simple, clear, and college-assignment ready.
+OUTPUT:
+\# Customer Email Classification
+
+## Categories
+
+- Billing
+- Technical Support
+- Feedback
+- Others
+
+## 1. Sample Emails
+
+| No. | Email | Category |
+|---|---|---|
+| 1 | Why was I charged twice for my subscription? | Billing |
+| 2 | The application crashes whenever I try to log in. | Technical Support |
+| 3 | Your new dashboard is easy to use and looks great. | Feedback |
+| 4 | What are your office working hours? | Others |
+| 5 | Please send me an invoice for last month. | Billing |
+
+## 2. Zero-Shot Prompt
+
+**Prompt:**
+
+```text
+Classify the following customer email into exactly one category: Billing, Technical Support, Feedback, or Others.
+
+Email: "I cannot reset my password because the reset link does not work."
+Return only the category.
+```
+
+**Output:** `Technical Support`
+
+## 3. One-Shot Prompt
+
+**Prompt:**
+
+```text
+Classify customer emails into exactly one category: Billing, Technical Support, Feedback, or Others.
+
+Example:
+Email: "The monthly fee on my account is incorrect."
+Category: Billing
+
+Now classify this email:
+Email: "The website is very slow when I open my account."
+Return only the category.
+```
+
+**Output:** `Technical Support`
+
+## 4. Few-Shot Prompt
+
+**Prompt:**
+
+```text
+Classify customer emails into exactly one category: Billing, Technical Support, Feedback, or Others.
+
+Example 1:
+Email: "I need a refund for a duplicate payment."
+Category: Billing
+
+Example 2:
+Email: "The mobile app closes when I upload a document."
+Category: Technical Support
+
+Example 3:
+Email: "The service is helpful, but the search feature could be improved."
+Category: Feedback
+
+Now classify this email:
+Email: "Can I change the email address on my account?"
+Return only the category.
+```
+
+**Output:** `Others`
+
+## 5. Comparison
+
+| Method | Accuracy | Advantages | Limitations |
+|---|---|---|---|
+| Zero-shot | Usually moderate | Fast and needs no examples | May misunderstand category boundaries |
+| One-shot | Better than zero-shot | Shows the expected format and one classification pattern | One example may not represent every type of email |
+| Few-shot | Usually the highest | Multiple examples improve consistency and understanding | Takes more prompt space and requires good examples |
+
+**Conclusion:** Few-shot prompting is generally the most reliable for this task, while zero-shot prompting is the quickest and simplest.
+
+Q2:
+Intent Classification for Chatbot Queries
+A company wants to deploy a chatbot to handle customer queries. Each query must be classified into one of the following intents: Account Issue, Order Status, Product Inquiry, or General Question using prompt engineering techniques.
+Tasks to be Completed
+1.	Prepare Sample Data
+Create 6 short chatbot user queries, each mapped to one of the four intents.
+2.	Zero-shot Prompting
+Design a prompt that asks the LLM to classify a user query into the given intent categories without examples.
+3.	One-shot Prompting
+Provide one labeled query in the prompt before classifying a new query.
+4.	Few-shot Prompting
+Include 3–5 labeled intent examples to guide the LLM before classifying a new query.
+5.	Evaluation
+Apply all three techniques to the same set of test queries and document differences in performance.
+
+
+PROMPT:
+Solve this Customer Email Classification assignment:
+Create 5 short sample emails for Billing, Technical Support, Feedback, and Others. Then create and demonstrate zero-shot, one-shot (1 example), and few-shot (3 examples) prompts for classifying a new email. Show the classification output for each method and briefly compare their effectiveness, advantages, and limitations.
+Keep the answer simple, clear, and college-assignment ready.
+OUTPUT:
+ # Customer Email Classification
+
+ ## 1. Sample Emails
+
+ | Category | Sample emails |
+ |---|---|
+ | **Billing** | 1. “I was charged twice for my monthly subscription.”<br>2. “How can I update my payment method?”<br>3. “Please send me my latest invoice.”<br>4. “Why is there an extra fee on my bill?”<br>5. “I would like a refund for my purchase.” |
+ | **Technical Support** | 1. “The app crashes whenever I try to log in.”<br>2. “I cannot reset my password.”<br>3. “The website is loading very slowly.”<br>4. “My file will not upload.”<br>5. “The notification feature is not working.” |
+ | **Feedback** | 1. “The new dashboard is easy to use.”<br>2. “Please add a dark mode.”<br>3. “I am happy with the quick service.”<br>4. “The search feature could be improved.”<br>5. “Your support team was very helpful.” |
+ | **Others** | 1. “What are your business hours?”<br>2. “Where is your office located?”<br>3. “Do you offer student discounts?”<br>4. “Can I change the name on my account?”<br>5. “I would like information about your company.” |
+
+ ## 2. New Email to Classify
+
+ **New email:** “I was charged for my subscription twice this month. Please check my bill and refund the extra payment.”
+
+ ## 3. Zero-Shot Prompt
+
+ **Prompt:**
+
+ ```text
+ Classify the following customer email as Billing, Technical Support, Feedback, or Others. Do not use examples. Return only the category.
+
+ Email: I was charged for my subscription twice this month. Please check my bill and refund the extra payment.
+ ```
+
+ **Output:** Billing
+
+ ## 4. One-Shot Prompt (1 Example)
+
+ **Prompt:**
+
+ ```text
+ Classify each customer email as Billing, Technical Support, Feedback, or Others.
+
+ Example:
+ Email: I cannot log in to my account.
+ Category: Technical Support
+
+ Now classify:
+ Email: I was charged for my subscription twice this month. Please check my bill and refund the extra payment.
+ ```
+
+ **Output:** Billing
+
+ ## 5. Few-Shot Prompt (3 Examples)
+
+ **Prompt:**
+
+ ```text
+ Classify each customer email as Billing, Technical Support, Feedback, or Others.
+
+ Example 1:
+ Email: Please send me my latest invoice.
+ Category: Billing
+
+ Example 2:
+ Email: The app crashes when I try to log in.
+ Category: Technical Support
+
+ Example 3:
+ Email: Please add a dark mode to the website.
+ Category: Feedback
+
+ Now classify:
+ Email: I was charged for my subscription twice this month. Please check my bill and refund the extra payment.
+ ```
+
+ **Output:** Billing
+
+ ## 6. Comparison
+
+ | Method | Effectiveness | Advantages | Limitations |
+ |---|---|---|---|
+ | Zero-shot | Good for clear emails | Fast; needs no labeled examples | May misunderstand unclear or unusual emails |
+ | One-shot | Better than zero-shot in some cases | Shows the expected format and task | One example may not represent every category |
+ | Few-shot | Usually the most consistent | Provides several category patterns and improves accuracy | Uses more prompt space and examples must be relevant |
+
+ All three methods classify the new email as **Billing** because it clearly describes a duplicate charge and a refund request. In general, few-shot prompting is the most reliable, while zero-shot prompting is the simplest.
+
+Q3:
+Student Feedback Analysis
+A university collects student feedback and wants to categorize comments as Positive, Negative, or Neutral.
+Questions:
+a)	Write a Zero-shot prompt to classify feedback sentiment.
+b) Provide a One-shot prompt with one feedback example.
+c) Create a Few-shot prompt using multiple labeled feedback samples.
+d) Explain how examples improve sentiment classification accuracy.
+PROMPT:
+Solve this Student Feedback Analysis assignment.
+Classify student feedback as Positive, Negative, or Neutral.
+Provide:
+1.	A Zero-shot prompt with its output.
+2.	A One-shot prompt with 1 labeled example and its output.
+3.	A Few-shot prompt with 3 labeled examples and its output.
+4.	A short explanation of how examples improve sentiment classification accuracy.
+Keep it simple, clear, and college-assignment ready.
+OUTPUT:
+
+# Student Feedback Analysis
+
+## 1. Zero-Shot Prompt
+
+**Prompt:**
+```text
+Classify the following student feedback as Positive, Negative, or Neutral.
+Feedback: "The instructor explained the topics clearly, and the classes were very helpful."
+Reply with only the classification.
+```
+
+**Output:** `Positive`
+
+## 2. One-Shot Prompt
+
+**Prompt:**
+```text
+Classify student feedback as Positive, Negative, or Neutral.
+
+Example:
+Feedback: "The course materials were organized and useful."
+Classification: Positive
+
+Now classify:
+Feedback: "The assignments were difficult, and the instructions were unclear."
+Reply with only the classification.
+```
+
+**Output:** `Negative`
+
+## 3. Few-Shot Prompt
+
+**Prompt:**
+```text
+Classify student feedback as Positive, Negative, or Neutral.
+
+Example 1:
+Feedback: "The teacher was supportive and answered all questions."
+Classification: Positive
+
+Example 2:
+Feedback: "The lectures were confusing and the workload was overwhelming."
+Classification: Negative
+
+Example 3:
+Feedback: "The class was held on Tuesday afternoon."
+Classification: Neutral
+
+Now classify:
+Feedback: "The lessons were interesting, but the online system was sometimes slow."
+Reply with only the classification.
+```
+
+**Output:** `Positive`
+
+## 4. How Examples Improve Accuracy
+
+Examples show the model what each label means and how to apply the labels to real feedback. They clarify the difference between positive, negative, and neutral statements. Multiple examples also help the model classify mixed or less obvious opinions more consistently.
+
+Q4:
+Course Recommendation System
+An online learning platform wants to recommend courses by classifying learner queries into Beginner, Intermediate, or Advanced levels.
+Questions:
+a) Write a Zero-shot prompt to classify learner queries.
+b) Create a One-shot prompt with one example query.
+c) Develop a Few-shot prompt with multiple labeled queries.
+d) Discuss how Few-shot prompting improves recommendation quality.
+PROMPT:
+Solve this Course Recommendation System assignment.
+Classify learner queries as Beginner, Intermediate, or Advanced.
+Provide:
+1.	A Zero-shot prompt with its output.
+2.	A One-shot prompt with 1 labeled example and its output.
+3.	A Few-shot prompt with 3 labeled examples and its output.
+4.	A short explanation of how Few-shot prompting improves recommendation quality.
+Keep the answer simple, clear, and college-assignment ready.
+OUTPUT:
+ # Course Recommendation System
+
+## 1. Zero-shot Prompt
+
+**Prompt:**
+```text
+Classify the learner's query as Beginner, Intermediate, or Advanced. Then recommend a suitable course level.
+
+Learner query: "I have never programmed before and want to learn the basics of Python."
+```
+
+**Output:**
+```text
+Classification: Beginner
+Recommendation: An Introduction to Python course for beginners.
+```
+
+## 2. One-shot Prompt
+
+**Prompt:**
+```text
+Classify the learner's query as Beginner, Intermediate, or Advanced. Then recommend a suitable course level.
+
+Example:
+Learner query: "I am new to web development and want to learn HTML and CSS."
+Classification: Beginner
+Recommendation: A beginner-level Web Development course.
+
+Learner query: "I know Python fundamentals and want to build machine-learning models."
+```
+
+**Output:**
+```text
+Classification: Intermediate
+Recommendation: An intermediate-level Machine Learning with Python course.
+```
+
+## 3. Few-shot Prompt
+
+**Prompt:**
+```text
+Classify the learner's query as Beginner, Intermediate, or Advanced. Then recommend a suitable course level.
+
+Example 1:
+Learner query: "I have never used a programming language and want to learn coding basics."
+Classification: Beginner
+Recommendation: A beginner-level Programming Fundamentals course.
+
+Example 2:
+Learner query: "I know Python fundamentals and want to build applications using APIs."
+Classification: Intermediate
+Recommendation: An intermediate-level Python Application Development course.
+
+Example 3:
+Learner query: "I design scalable distributed systems and want to study advanced cloud architecture."
+Classification: Advanced
+Recommendation: An advanced-level Cloud Architecture course.
+
+Learner query: "I understand supervised learning and neural networks and want to research large language models."
+```
+
+**Output:**
+```text
+Classification: Advanced
+Recommendation: An advanced-level Deep Learning or Large Language Models course.
+```
+
+## 4. How Few-shot Prompting Improves Recommendation Quality
+
+Few-shot prompting gives the model labeled examples for all three learner levels. These examples clarify the classification rules, so the model can classify queries more consistently and recommend courses that better match the learner's knowledge and goals.
+
+Q5:
+Social Media Post Moderation
+A social media platform wants to classify posts into Acceptable, Offensive, or Spam.
+Questions:
+a) Write a Zero-shot prompt for post moderation.
+b) Convert it into a One-shot prompt.
+c) Design a Few-shot prompt using multiple examples.
+d) Explain the challenges of Zero-shot prompting in content moderation.
+PROMPT:
+Solve this Social Media Post Moderation assignment.
+Classify posts as Acceptable, Offensive, or Spam.
+Provide:
+1.	A Zero-shot prompt with its output.
+2.	A One-shot prompt with 1 labeled example and its output.
+3.	A Few-shot prompt with 3 labeled examples and its output.
+4.	A short explanation of the challenges of Zero-shot prompting in content moderation.
+Keep it simple, clear, and college-assignment ready.
+OUTPUT:
+ # Social Media Post Moderation
+
+## Task
+
+Classify the following post as **Acceptable**, **Offensive**, or **Spam**.
+
+Post: “I really enjoyed today’s workshop. Thank you to everyone who organized it!”
+
+## 1. Zero-Shot Prompt
+
+**Prompt:**
+
+> Classify this social media post as **Acceptable**, **Offensive**, or **Spam**. Give a brief reason.
+>
+> Post: “I really enjoyed today’s workshop. Thank you to everyone who organized it!”
+
+**Output:**
+
+> **Acceptable** — The post is polite, relevant, and does not contain harmful or promotional content.
+
+## 2. One-Shot Prompt
+
+**Prompt:**
+
+> Classify each social media post as **Acceptable**, **Offensive**, or **Spam**. Give a brief reason.
+>
+> Example: “Congratulations on your new job!” → **Acceptable** — It is a positive and harmless message.
+>
+> Post: “I really enjoyed today’s workshop. Thank you to everyone who organized it!”
+
+**Output:**
+
+> **Acceptable** — The post is positive, respectful, and relevant.
+
+## 3. Few-Shot Prompt
+
+**Prompt:**
+
+> Classify each social media post as **Acceptable**, **Offensive**, or **Spam**. Use the examples as a guide and give a brief reason.
+>
+> Example 1: “The sunset looks beautiful today.” → **Acceptable** — It is harmless and appropriate.
+>
+> Example 2: “You are stupid and nobody wants you here.” → **Offensive** — It insults and targets another person.
+>
+> Example 3: “Click this link now to win a free phone! Share with 20 friends!” → **Spam** — It is unsolicited promotional content with suspicious engagement requests.
+>
+> Post: “I really enjoyed today’s workshop. Thank you to everyone who organized it!”
+
+**Output:**
+
+> **Acceptable** — The post is respectful, relevant, and not abusive or promotional.
+
+## 4. Challenges of Zero-Shot Prompting in Content Moderation
+
+Zero-shot prompting can be difficult because the model receives no examples to clarify the category boundaries. Words may have different meanings depending on context, culture, or slang. Sarcasm, jokes, coded insults, and indirect harassment can also be misunderstood. In addition, it may be unclear whether advertising is spam or a legitimate recommendation. These issues can lead to inconsistent classifications, false positives, or harmful posts being missed.
+
+
