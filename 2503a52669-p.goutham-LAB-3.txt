@@ -1,0 +1,264 @@
+PROBLEM-1
+
+Question 1: Zero-Shot Prompting (Palindrome Number Program)
+Write a zero-shot prompt (without providing any examples) to generate a Python function that checks whether a given number is a palindrome.
+Task:
+Record the AI-generated code.
+Test the code with multiple inputs.
+Identify any logical errors or missing edge-case handling
+
+PROMPT:
+
+Write a simple Python function to check whether a given number is a palindrome. Return True if it is a palindrome, otherwise return False.
+
+CODE:
+
+def is_palindrome(num):
+    return str(num) == str(num)[::-1]
+
+print(is_palindrome(121))
+print(is_palindrome(123))
+print(is_palindrome(1221))
+print(is_palindrome(10))
+
+OUTPUT:
+
+True
+False
+True
+False
+
+PROBLEM-2
+
+Question 2: One-Shot Prompting (Factorial Calculation)
+Write a one-shot prompt by providing one input-output example and ask the AI to generate a Python function to compute the factorial of a given number.
+Example:
+Input: 5 → Output: 120
+Task:
+Compare the generated code with a zero-shot solution.
+Examine improvements in clarity and correctness.
+
+PROMPT:
+Write a simple Python function to calculate the factorial of a number.
+
+Example:
+Input: 5
+Output: 120
+
+Now generate the Python function.
+
+CODE:
+
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+print(factorial(5))
+print(factorial(3))
+print(factorial(0))
+
+OUTPUT:
+
+120
+6
+1
+
+PROBLEM-3
+
+
+Question 3: Few-Shot Prompting (Armstrong Number Check)
+Write a few-shot prompt by providing multiple input-output examples to guide the AI in generating a Python function to check whether a given number is an Armstrong number.
+Examples:
+Input: 153 → Output: Armstrong Number
+Input: 370 → Output: Armstrong Number
+Input: 123 → Output: Not an Armstrong Number
+Task:
+Analyze how multiple examples influence code structure and accuracy.
+Test the function with boundary values and invalid inputs.
+
+PROMPT:
+
+
+Write a simple Python function to check whether a number is an Armstrong number.
+
+Examples:
+Input: 153 → Output: Armstrong Number
+Input: 370 → Output: Armstrong Number
+Input: 123 → Output: Not an Armstrong Number
+
+Now generate the Python function and test it with these examples.
+
+CODE:
+
+def check_armstrong(num):
+    digits = str(num)
+    power = len(digits)
+    total = sum(int(digit) ** power for digit in digits)
+
+    if total == num:
+        return "Armstrong Number"
+    else:
+        return "Not an Armstrong Number"
+
+
+print(check_armstrong(153))
+print(check_armstrong(370))
+print(check_armstrong(123))
+
+OUTPUT:
+
+Armstrong Number
+Armstrong Number
+Not an Armstrong Number
+
+PROBLEM-4
+
+Question 4: Context-Managed Prompting (Optimized Number Classification)
+Design a context-managed prompt with clear instructions and constraints to generate an optimized Python program that classifies a number as prime, composite, or neither.
+Task:
+Ensure proper input validation.
+Optimize the logic for efficiency.
+Compare the output with earlier prompting strategies.
+
+PROMPT:
+
+Write an optimized Python program to classify a number as Prime, Composite, or Neither.
+
+Instructions:
+1. Use a simple and efficient method.
+2. Validate the input.
+3. Numbers less than 2 should be classified as Neither.
+4. Use a loop only up to the square root of the number.
+5. Give sample inputs and outputs.
+6. Keep the code easy to understand.
+
+CODE:
+
+
+def classify_number(n):
+    if not isinstance(n, int):
+        return "Invalid Input"
+
+    if n < 2:
+        return "Neither"
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return "Composite"
+
+    return "Prime"
+
+
+print(classify_number(7))
+print(classify_number(10))
+print(classify_number(1))
+print(classify_number(15))
+print(classify_number("10"))
+
+OUTPUT:
+
+Prime
+Composite
+Neither
+Composite
+Invalid Input
+
+
+PROBLEM-5
+
+Question 5: Zero-Shot Prompting (Perfect Number Check)
+Write a zero-shot prompt (without providing any examples) to generate a Python function that checks whether a given number is a perfect number.
+Task:
+Record the AI-generated code.
+Test the program with multiple inputs.
+Identify any missing conditions or inefficiencies in the logic
+
+PROMPT:
+
+Write a simple Python function to check whether a given number is a perfect number. Return "Perfect Number" or "Not a Perfect Number".
+
+CODE:
+
+def check_perfect(num):
+    total = 0
+
+    for i in range(1, num):
+        if num % i == 0:
+            total += i
+
+    if total == num:
+        return "Perfect Number"
+    else:
+        return "Not a Perfect Number"
+
+
+print(check_perfect(6))
+print(check_perfect(28))
+print(check_perfect(10))
+print(check_perfect(1))
+
+OUTPUT:
+
+Perfect Number
+Perfect Number
+Not a Perfect Number
+Not a Perfect Number
+
+
+PROBLEM-6
+
+Question 6: Few-Shot Prompting (Even or Odd Classification with Validation)
+Write a few-shot prompt by providing multiple input-output examples to guide the AI in generating a Python program that determines whether a given number is even or odd, including proper input validation.
+Examples:
+Input: 8 → Output: Even
+Input: 15 → Output: Odd
+Input: 0 → Output: Even
+Task:
+Analyze how examples improve input handling and output clarity.
+Test the program with negative numbers and non-integer inputs.
+
+PROMPT:
+
+Write a simple Python program to check whether a number is Even or Odd. Include input validation.
+
+Examples:
+Input: 8 → Output: Even
+Input: 15 → Output: Odd
+Input: 0 → Output: Even
+
+The program should also handle negative numbers and non-integer inputs.
+
+CODE:
+
+def check_even_odd(num):
+    if not isinstance(num, int):
+        return "Invalid Input"
+
+    if num % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+
+print(check_even_odd(8))
+print(check_even_odd(15))
+print(check_even_odd(0))
+print(check_even_odd(-6))
+print(check_even_odd(-7))
+print(check_even_odd("10"))
+
+OUTPUT:
+
+Even
+Odd
+Even
+Even
+Odd
+Invalid Input
+
+
+
+
+
